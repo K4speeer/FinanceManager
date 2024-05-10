@@ -13,7 +13,7 @@ from ..utils.formatter import extended_table_view
 # By calling the command with no options it will display all saved records
 
 @click.command("list",
-               help="Search for a record")
+               help="List Records")
 @click.option("--date", "-d",
               help="Search by Date criteria YYYY-MM-DD",
               required=False,
