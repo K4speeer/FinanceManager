@@ -1,6 +1,8 @@
 import click
 from ..utils.data_utils import get_record_by_id, update_record
 from ..utils.formatter import extended_table_view, updater_table
+from ..utils.data_utils import update_wallet
+from ..utils.config_utils import get_config_value
 from ..models import Category, Record
 
 # Edit command 
@@ -63,6 +65,8 @@ def edit(_id):
                 # Updates the Record with new data
                 # by replacing the original_record with updated_record
                 update_record(_id, updated_record)
+                # Update wallet with new data 
+                update_wallet(get_config_value("default_wallet"), update_record)
                 # Prints a succession log
                 click.secho("Record updated successfully!", fg='green')
                 # Breaks the loop
